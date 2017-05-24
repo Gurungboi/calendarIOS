@@ -15,4 +15,8 @@ class DateViewCell: JTAppleCell {
 
     @IBOutlet weak var selectedView: UIView!
     
+    
+    @IBOutlet weak var lblenglishdate: UILabel!
+
+    
 }

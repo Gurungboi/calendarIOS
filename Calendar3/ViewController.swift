@@ -8,10 +8,11 @@
 
 import UIKit
 import JTAppleCalendar
+import CoreData
 
 class ViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
-    
+    @IBOutlet weak var eventViewCalendar: UIView!
     @IBOutlet weak var lblyear: UILabel!
     @IBOutlet weak var lblmonth: UILabel!
     
@@ -25,12 +26,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         
+        // Selected the Current Date
+        calendarView.scrollToDate(NSDate() as Date)
+        calendarView.selectDates([NSDate() as Date])
+        
+        
+  
+        lblmonth.font = UIFont(name: "DevanagariNormal", size: 18);
+        lblyear.font = UIFont(name: "DevanagariNormal", size: 18);
         setupCalendarView()
         
+        // If Required to Select Multiple Date....
+        //calendarView.allowsMultipleSelection = true
+        
+        
+        //self.calendarView.registerCellViewXib(file: "DateViewCell.xib")
+        // Registering your cell is manditory
+       // self.eventViewCalendar.addChildViewController(EventViewController)
+        
+        var controllerArray : [UIViewController] = []
+        
+        var eventViewController: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "EventsViews"))!
+//      eventViewController.title = "FEE DETAILS"
+        controllerArray.append(eventViewController)
+        
+        self.eventViewCalendar.addSubview(eventViewController.view)
+     
+       //   self.InformationView.addSubview(pageMenu!.view)
         
     }
-
+    
+   
     func setupCalendarView(){
         // Setup Calendar Spacing
         
@@ -120,7 +148,7 @@ extension ViewController: JTAppleCalendarViewDelegate{
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as!DateViewCell
         cell.lbldate.text = cellState.text
-
+        cell.lblenglishdate.text = cellState.text
         handleCellSelected(view: cell, cellState: cellState)
         handleCelltextColor(view: cell, cellState: cellState)
         
