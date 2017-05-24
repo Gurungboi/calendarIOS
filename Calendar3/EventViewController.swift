@@ -117,6 +117,8 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
                    
                 }
             }
+            
+            self.EventView.reloadData()
         }
             
         catch{

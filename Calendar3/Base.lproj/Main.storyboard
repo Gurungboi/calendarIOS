@@ -41,7 +41,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="Rac-un-Hjk" customClass="DateViewCell" customModule="Calendar3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8" width="186" height="186"/>
+                                        <rect key="frame" x="0.0" y="7.5" width="186" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
